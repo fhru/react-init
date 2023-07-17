@@ -1,14 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Belajar React</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
 <body>
-    Hello World
+    <div id="root"></div>
+    <script type="text/babel">
+        const container = document.getElementById("root")
+        const root = ReactDOM.createRoot(container)
+
+        function HelloWorld() {
+            return (<h1>Belajar React WPU 🚀</h1>)
+        }
+
+        function HomePage() {
+            const [likes, setLikes] = React.useState(0);
+
+            function handleClick() {
+                setLikes(likes + 1);
+            }
+
+            return (
+                <>
+                    <HelloWorld />
+                    <button onClick={handleClick}>Like {(likes)}</button>
+                </>
+            )
+        }
+
+        root.render(<HomePage />)
+    </script>
 </body>
 
 </html>
